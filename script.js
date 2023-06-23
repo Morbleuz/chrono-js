@@ -5,6 +5,7 @@ const times = document.getElementById('times')
 const hours = document.getElementById('hours');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
+const title = document.getElementById('title-information');
 var countTime = 0;
 var isStart = false; 
 
@@ -25,7 +26,9 @@ function typeWriter() {
 start.addEventListener('click',startAction);
 reset.addEventListener('click',resetAction);
 time.addEventListener('click',timeAction);
-
+function updateTitle(h,m,s){
+    title.innerHTML = "Chrono JS - " + h + ":" + m + ":"+s;
+}
 function timeAction(){  
     beep();
 
@@ -67,7 +70,9 @@ function resetAction(){
     hours.innerHTML = "00";
     times.innerHTML = "";
     start.setAttribute('style','background-color: #2da800;');
+    start.innerHTML = "Start";
     countTime = 0;
+    updateTitle(hours.innerHTML,minutes.innerHTML,seconds.innerHTML);
 }
 
 function startAction(){
@@ -91,7 +96,7 @@ async function startChrono(){
         if(isStart){
             seconds.innerHTML++;
             if(seconds.innerHTML == 60){
-                seconds.innerHTML=00;
+                seconds.innerHTML= 00;
                 minutes.innerHTML++;
                 if(minutes.innerHTML == 60){
                     hours.innerHTML++;
@@ -99,6 +104,7 @@ async function startChrono(){
                 }
             }
         designChrono();
+        updateTitle(hours.innerHTML,minutes.innerHTML,seconds.innerHTML);
 
         }
 
