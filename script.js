@@ -96,11 +96,11 @@ async function startChrono(){
         if(isStart){
             seconds.innerHTML++;
             if(seconds.innerHTML == 60){
-                seconds.innerHTML= 00;
+                seconds.innerHTML= "00";
                 minutes.innerHTML++;
                 if(minutes.innerHTML == 60){
                     hours.innerHTML++;
-                    minutes.innerHTML = 00;
+                    minutes.innerHTML = "00";
                 }
             }
         designChrono();
